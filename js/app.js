@@ -9,7 +9,14 @@ const game = {
 		"Okay, sorry. Sometimes I trip for no reason."
 	],
 
-	
+	printMainQuestions: function() {
+		const mainQuestionDiv = document.createElement('div')
+		mainQuestionDiv.classList.add('computer-response')
+		mainQuestionDiv.innerText = this.mainQuestionArr[0]
+
+		const computerDiv = document.getElementById('computer-text-separation')
+		computerDiv.appendChild(mainQuestionDiv)
+	}
 
 }
 
