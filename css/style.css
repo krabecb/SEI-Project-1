@@ -1,0 +1,119 @@
+body {
+	background-color: #EFEEEE;
+	font-family: 'Bebas Neue', cursive;
+}
+
+h1 {
+	text-align: center;
+	padding-top: 30px;
+}
+
+#chances-and-time {
+	display: flex;
+	justify-content: space-around;
+}
+
+.hearts {
+	height: 20px;
+	width: 20px;
+}
+
+#interface {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	/*transform: translateY(5%); */
+	margin: auto;
+	width: 600px;
+}
+
+#text-container {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	height: 400px;
+	width: 600px;
+	border: 1px solid rgba(255, 255, 255, 0.20);
+	border-radius: 12px;
+	box-shadow: -6px -6px 26px 0 rgba(255, 255, 255, 0.80);
+	box-shadow: 6px 6px 16px 0 rgba(217, 210, 200, 1);
+	overflow: scroll;
+}
+
+#player-one-buttons {
+	display: flex;
+	justify-content: space-around;
+	width: 600px;
+	padding-top: 30px;
+}
+
+#gif-button {
+	padding: 5px;
+	font-family: 'Bebas Neue', cursive;
+	width: 150px;
+	background-color: #78D4FF;
+	border: 1px solid rgba(255, 255, 255, 0.20);
+	border-radius: 12px;
+	box-shadow: -6px -6px 26px 0 rgba(255, 255, 255, 0.80);
+	box-shadow: 6px 6px 16px 0 rgba(217, 210, 200, 1);
+}
+
+#one {
+	padding: 5px;
+	font-family: 'Bebas Neue', cursive;
+	width: 150px;
+	background-color: #78D4FF;
+	border: 1px solid rgba(255, 255, 255, 0.20);
+	border-radius: 12px;
+	box-shadow: -6px -6px 26px 0 rgba(255, 255, 255, 0.80);
+	box-shadow: 6px 6px 16px 0 rgba(217, 210, 200, 1);
+}
+
+#two {
+	padding: 5px;
+	font-family: 'Bebas Neue', cursive;
+	width: 150px;
+	background-color: #78D4FF;
+	border: 1px solid rgba(255, 255, 255, 0.20);
+	border-radius: 12px;
+	box-shadow: -6px -6px 26px 0 rgba(255, 255, 255, 0.80);
+	box-shadow: 6px 6px 16px 0 rgba(217, 210, 200, 1);
+}
+
+#computer {
+	display: flex;
+	justify-content: flex-start;
+	width: 300px;
+	border-radius: 12px;
+	padding-left: 5px;
+	padding-top: 5px;
+}
+
+#player {
+	display: flex;
+	justify-content: flex-end;
+	width: 300px;
+	border-radius: 12px;
+	padding-right: 5px;
+	padding-top: 5px;
+}
+
+.computer-response {
+	padding: 10px;
+	height: 25px;
+	background-color: #EFEEEE;
+	border: 1px solid rgba(255, 255, 255, 0.20);
+	border-radius: 12px;
+	box-shadow: -6px -6px 26px 0 rgba(255, 255, 255, 0.80);
+	box-shadow: 6px 6px 16px 0 rgba(217, 210, 200, 1);
+}
+
+.player-response {
+	padding: 10px;
+	height: 25px;
+	background-color: #78D4FF;
+	border: 1px solid rgba(255, 255, 255, 0.20);
+	border-radius: 12px;
+	box-shadow: -6px -6px 26px 0 rgba(255, 255, 255, 0.80);
+	box-shadow: 6px 6px 16px 0 rgba(217, 210, 200, 1);
+}
