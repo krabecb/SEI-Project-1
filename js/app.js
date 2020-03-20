@@ -3,23 +3,33 @@ const game = {
 	mainQuestionArr: [
 		{ 
 			firstQuestion: "So, quick question.",
-			value: false
+			value: false,
+			answer1: "Nope",
+			answer2: "What's up?"
 		},
 		{ 
 			secondQuestion: "What did you want to do for dinner?",
-			value: false
+			value: false,
+			answer1: "Taco bell",
+			answer2: "Chinese food?"
 		},
 		{ 
 			thirdQuestion: "That sounds good, but what about something italian tonight?",
-			value: false
+			value: false,
+			answer1: "I guess.",
+			answer2: "meh"
 		},
 		{
 			fourthQuestion: "Italian it is!",
-			value: false
+			value: false,
+			answer1: "alright gtg",
+			answer2: "alright gotta get back to work"
 		},
 		{
 			fifthQuestion: "Isn't it lunch time right now? Are you really working? Who's with you right now?",
-			value: false
+			value: false,
+			answer1: "wow you don't trust me?",
+			answer2: "Omg where else would I be right now?"
 		},
 		{
 			sixthQuestion: "Okay, sorry. Sometimes I trip for no reason.",
@@ -27,22 +37,13 @@ const game = {
 		}
 	],
 
-	playerButtonChoices: [
-		"Nope",
-		"What's up?",
-		"Taco Bell",
-		"Chinese food?",
-		"I guess.",
-		"meh",
-		"alright gtg",
-		"alright gotta get back to work",
-		"Wow you don't trust me?",
-		"Omg where else would I be rn?"
-	],
+	hearts: 3,
+
+	buttonOneCC: 0,
 
 	wrongAnswerArrOne: [
 		"What's wrong with you?",
-		"why would you say it like that?",
+		"why would you say that?",
 		"smh, really?",
 		"come on, for real?",
 		"wow..."
@@ -87,30 +88,122 @@ const game = {
 	],
 
 	start: function() {
-		this.printMainQuestions()
+		this.printMainQuestionZero()
 	},
+
+	//												     !!!!!!!!!!!!!!!!!!!!!!!!
+	//                                                   !!!!!FIRST QUESTION!!!!!
+	//												     !!!!!!!!!!!!!!!!!!!!!!!!
 
 	printMainQuestionZero: function() {
 		const mainQuestionDiv = document.createElement('div')
 		mainQuestionDiv.classList.add('computer-response')
-		mainQuestionDiv.innerText = this.mainQuestionArr[0]
+		mainQuestionDiv.innerText = this.mainQuestionArr[0].firstQuestion
 
 		const textContainerDiv = document.getElementById('text-container')
 		textContainerDiv.appendChild(mainQuestionDiv)
+
+		this.mainQuestionArr[0].value = true
+
+		if(this.mainQuestionArr[0].value === true) {
+			const firstButtonZero = document.getElementById('one')
+			firstButtonZero.innerText = this.mainQuestionArr[0].answer1
+
+			const secondButtonZero = document.getElementById('two')
+			secondButtonZero.innerText = this.mainQuestionArr[0].answer2
+		}
 	},
 
-	playerResponseToZero: function() {
-		const playerResponseDiv = document.createElement('div')
-		playerResponseDiv.classList.add('player-response')
-		playerResponseDiv.innerText = "Test"
+	buttonOneResponseToZero: function() {
+		const answerOneDiv = document.createElement('div')
+		answerOneDiv.classList.add('player-response')
+		answerOneDiv.innerText = this.mainQuestionArr[0].answer1
 
 		const textContainerDiv = document.getElementById('text-container')
-		textContainerDiv.appendChild(playerResponseDiv)
+		textContainerDiv.appendChild(answerOneDiv)
+
+		const wrongAnsArrOneReply = document.createElement('div')
+		wrongAnsArrOneReply.classList.add('computer-response')
+		wrongAnsArrOneReply.innerText = game.wrongAnswerArrOne[Math.floor(Math.random() * (5 - 0) + 0)]
+
+		textContainerDiv.appendChild(wrongAnsArrOneReply)
+
+		this.hearts -= 1
+	},
+		
+
+	buttonOneResponseToZeroHeartsTwo: function () {
+		const answerOneDiv = document.createElement('div')
+		answerOneDiv.classList.add('player-response')
+		answerOneDiv.innerText = this.mainQuestionArr[0].answer1
+
+		const textContainerDiv = document.getElementById('text-container')
+		textContainerDiv.appendChild(answerOneDiv)
+
+
+		const wrongAnsArrTwoReply = document.createElement('div')
+		wrongAnsArrTwoReply.classList.add('computer-response')
+		wrongAnsArrTwoReply.innerText = game.wrongAnswerArrTwo[Math.floor(Math.random() * (5 - 0) + 0)]
+
+		textContainerDiv.appendChild(wrongAnsArrTwoReply)
+
+		this.hearts -= 1
 	},
 
-	printButtonChoices: function() {
+	buttonOneResponseToZeroHeartsOne: function () {
+		const answerOneDiv = document.createElement('div')
+		answerOneDiv.classList.add('player-response')
+		answerOneDiv.innerText = this.mainQuestionArr[0].answer1
 
-	}
+		const textContainerDiv = document.getElementById('text-container')
+		textContainerDiv.appendChild(answerOneDiv)
+
+
+		const wrongAnsArrThreeReply = document.createElement('div')
+		wrongAnsArrThreeReply.classList.add('computer-response')
+		wrongAnsArrThreeReply.innerText = game.finalBadResponse[Math.floor(Math.random() * (5 - 0) + 0)]
+
+		textContainerDiv.appendChild(wrongAnsArrThreeReply)
+
+		this.hearts -= 1
+	},
+
+	//												     !!!!!!!!!!!!!!!!!!!!!!!!!
+	//                                                   !!!!!SECOND QUESTION!!!!!
+	//												     !!!!!!!!!!!!!!!!!!!!!!!!!
+
+	printMainQuestionOne: function() {
+		const answerTwoDiv = document.createElement('div')
+		answerTwoDiv.classList.add('player-response')
+		answerTwoDiv.innerText = this.mainQuestionArr[0].answer2
+
+		const textContainerDiv = document.getElementById('text-container')
+		textContainerDiv.appendChild(answerTwoDiv)
+
+
+		const mainQuestionDiv = document.createElement('div')
+		mainQuestionDiv.classList.add('computer-response')
+		mainQuestionDiv.innerText = this.mainQuestionArr[1].secondQuestion
+
+		textContainerDiv.appendChild(mainQuestionDiv)
+
+		this.mainQuestionArr[1].value = true
+		this.mainQuestionArr[0].value = false
+
+		this.buttonOneCC = 0
+
+		if(this.mainQuestionArr[1].value === true) {
+			const firstButtonOne = document.getElementById('one')
+			firstButtonOne.innerText = this.mainQuestionArr[1].answer1
+
+			const secondButtonOne = document.getElementById('two')
+			secondButtonOne.innerText = this.mainQuestionArr[1].answer2
+		}
+	},
+
+	//buttonOneResponseToOne: function() {
+
+	//}
 
 }
 
@@ -119,11 +212,51 @@ const game = {
 
 // -----------------------------------------------------------------EVENTS-----------------------------------------------------------------------
 
+//										           !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//                                                 !!!!!!!!!!!!!!!BUTTON ONE!!!!!!!!!!!!!!!!!!!!
+//										           !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
+const zeroButtonOne = document.getElementById('one')
+zeroButtonOne.addEventListener('click', () => {
 
+//                                             !!!!!!!!!!!!!!!MAINQUESTIONARR[0]!!!!!!!!!!!!!!!!!!!!
 
+	game.buttonOneCC += 1
+	if(game.hearts === 3 && game.mainQuestionArr[0].value === true) {
+		game.buttonOneResponseToZero()
+		console.log(`Hearts - 1 \nHearts remaining: ${game.hearts}`)
+	}
+	if(game.hearts === 2 && game.buttonOneCC === 2 && game.mainQuestionArr[0].value === true) {
+		game.buttonOneResponseToZeroHeartsTwo()
+		console.log(`Hearts - 1 \nHearts remaining: ${game.hearts}`)
+	}
+	if(game.hearts === 1 && game.buttonOneCC === 3 && game.mainQuestionArr[0].value === true) {
+		game.buttonOneResponseToZeroHeartsOne()
+		console.log(`Hearts - 1 \nHearts remaining: ${game.hearts}`)
+	}
 
+//                                             !!!!!!!!!!!!!!!MAINQUESTIONARR[1]!!!!!!!!!!!!!!!!!!!!
+
+	if(game.hearts === 3 && game.buttonOneCC === 0 && game.mainQuestionArr[0].value === true && game.mainQuestionArr[1].value === true ) {
+		//game.buttonOneResponseToOne()
+		//console.log(`Hearts - 1 \nHearts remaining: ${game.hearts}`)
+	}
+})
+
+//										           !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//                                                 !!!!!!!!!!!!!!!BUTTON TWO!!!!!!!!!!!!!!!!!!!!
+//										           !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+const zeroButtonTwo = document.getElementById('two')
+zeroButtonTwo.addEventListener('click', () => {
+	if(game.hearts > 0) {
+		game.printMainQuestionOne()
+		console.log(`Here is the current click count: ${game.buttonOneCC}. It should be 0!`)
+	} else {
+		console.log(`Sorry, you have ${game.hearts} hearts. You've been dumped! `)
+	}
+})
 
 
 
