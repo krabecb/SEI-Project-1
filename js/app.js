@@ -553,6 +553,17 @@
 		}
 	},
 
+	hideFirstHeart: function() {
+		document.getElementById('heart-one').style.visibility = "hidden"
+	},
+
+	hideSecondHeart: function() {
+		document.getElementById('heart-two').style.visibility = "hidden"
+	},
+
+	hideThirdHeart: function() {
+		document.getElementById('heart-three').style.visibility = "hidden"
+	}
 }
 
 
@@ -573,14 +584,17 @@ zeroButtonOne.addEventListener('click', () => {
 
 	if(game.hearts === 3 && game.buttonOneCC === 5 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === false && game.mainQuestionArr[3].value === false && game.mainQuestionArr[4].value === true) {
 		game.buttonOneResponseToFour3H()
+		game.hideThirdHeart()
 		console.log(`Hearts - 1 \nHearts remaining: ${game.hearts} \nClick count: ${game.buttonOneCC}`)
 	}
 	if(game.hearts === 2 && game.buttonOneCC === 6 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === false && game.mainQuestionArr[3].value === false && game.mainQuestionArr[4].value === true) {
 		game.buttonOneResponseToFour2H()
+		game.hideSecondHeart()
 		console.log(`Hearts - 1 \nHearts remaining: ${game.hearts} \nClick count: ${game.buttonOneCC}`)
 	}
 	if(game.hearts === 1 && game.buttonOneCC === 7 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === false && game.mainQuestionArr[3].value === false && game.mainQuestionArr[4].value === true) {
 		game.buttonOneResponseToFour1H()
+		game.hideFirstHeart()
 		console.log(`Hearts - 1 \nHearts remaining: ${game.hearts} \nClick count: ${game.buttonOneCC}`)
 	}
 
@@ -590,14 +604,17 @@ zeroButtonOne.addEventListener('click', () => {
 
 	if(game.hearts === 3 && game.buttonOneCC === 4 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === false && game.mainQuestionArr[3].value === true) {
 		game.buttonOneResponseToThree3H()
+		game.hideThirdHeart()
 		console.log(`Hearts - 1 \nHearts remaining: ${game.hearts} \nClick count: ${game.buttonOneCC}`)
 	}
 	if(game.hearts === 2 && game.buttonOneCC === 5 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === false && game.mainQuestionArr[3].value === true) {
 		game.buttonOneResponseToThree2H()
+		game.hideSecondHeart()
 		console.log(`Hearts - 1 \nHearts remaining: ${game.hearts} \nClick count: ${game.buttonOneCC}`)
 	}
 	if(game.hearts === 1 && game.buttonOneCC === 6 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === false && game.mainQuestionArr[3].value === true) {
 		game.buttonOneResponseToThree1H()
+		game.hideFirstHeart()
 		console.log(`Hearts - 1 \nHearts remaining: ${game.hearts} \nClick count: ${game.buttonOneCC}`)
 	}
 
@@ -607,14 +624,17 @@ zeroButtonOne.addEventListener('click', () => {
 
 	if(game.hearts === 3 && game.buttonOneCC === 3 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === true) {
 		game.buttonOneResponseToTwo3H()
+		game.hideThirdHeart()
 		console.log(`Hearts - 1 \nHearts remaining: ${game.hearts} \nClick count: ${game.buttonOneCC}`)
 	}
 	if(game.hearts === 2 && game.buttonOneCC === 4 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === true) {
 		game.buttonOneResponseToTwo2H()
+		game.hideSecondHeart()
 		console.log(`Hearts - 1 \nHearts remaining: ${game.hearts} \nClick count: ${game.buttonOneCC}`)
 	}
 	if(game.hearts === 1 && game.buttonOneCC === 5 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === true) {
 		game.buttonOneResponseToTwo1H()
+		game.hideFirstHeart()
 		console.log(`Hearts - 1 \nHearts remaining: ${game.hearts} \nClick count: ${game.buttonOneCC}`)
 	}
 
@@ -624,14 +644,17 @@ zeroButtonOne.addEventListener('click', () => {
 
 	if(game.hearts === 3 && game.buttonOneCC === 2 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === true) {
 		game.buttonOneResponseToOne3H()
+		game.hideThirdHeart()
 		console.log(`Hearts - 1 \nHearts remaining: ${game.hearts} \nClick count: ${game.buttonOneCC}`)
 	}
 	if(game.hearts === 2 && game.buttonOneCC === 3 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === true) {
 		game.buttonOneResponseToOne2H()
+		game.hideSecondHeart()
 		console.log(`Hearts - 1 \nHearts remaining: ${game.hearts} \nClick count: ${game.buttonOneCC}`)
 	}
 	if(game.hearts === 1 && game.buttonOneCC === 4 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === true) {
 		game.buttonOneResponseToOne1H()
+		game.hideFirstHeart()
 		console.log(`Hearts - 1 \nHearts remaining: ${game.hearts} \nClick count: ${game.buttonOneCC}`)
 	}
 
@@ -640,14 +663,17 @@ zeroButtonOne.addEventListener('click', () => {
 
 	if(game.hearts === 3 && game.mainQuestionArr[0].value === true) {
 		game.buttonOneResponseToZero()
+		game.hideThirdHeart()
 		console.log(`Hearts - 1 \nHearts remaining: ${game.hearts}`)
 	}
 	if(game.hearts === 2 && game.buttonOneCC === 2 && game.mainQuestionArr[0].value === true) {
 		game.buttonOneResponseToZeroHeartsTwo()
+		game.hideSecondHeart()
 		console.log(`Hearts - 1 \nHearts remaining: ${game.hearts}`)
 	}
 	if(game.hearts === 1 && game.buttonOneCC === 3 && game.mainQuestionArr[0].value === true) {
 		game.buttonOneResponseToZeroHeartsOne()
+		game.hideFirstHeart()
 		console.log(`Hearts - 1 \nHearts remaining: ${game.hearts}`)
 	}
 
