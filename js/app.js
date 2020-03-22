@@ -4,8 +4,8 @@
 		{ 
 			firstQuestion: "So, quick question.",
 			value: false,
-			answer1: "Nope",
-			answer2: "What's up?"
+			answer1: "Can it wait Babe?",
+			answer2: "What's good?"
 		},
 		{ 
 			secondQuestion: "What did you want to do for dinner?",
@@ -22,13 +22,13 @@
 		{
 			fourthQuestion: "Italian it is!",
 			value: false,
-			answer1: "alright gtg",
+			answer1: "cool then",
 			answer2: "alright gotta get back to work"
 		},
 		{
-			fifthQuestion: "Isn't it lunch time right now? Are you really working? Who's with you right now?",
+			fifthQuestion: "Are you really working? Who you with right now?",
 			value: false,
-			answer1: "wow you don't trust me?",
+			answer1: "fr you don't trust me?",
 			answer2: "Omg where else would I be right now?"
 		},
 		{
@@ -42,6 +42,10 @@
 	hearts: 3,
 
 	buttonOneCC: 0,
+
+	// intervalID: null,
+
+	// timeElapsed: 0,
 
 	wrongAnswerArrOne: [
 		"What's wrong with you?",
@@ -57,6 +61,22 @@
 		"That is NOT what I wanted to hear!",
 		"Babe, you're on my last nerve",
 		"Last chance, I don't got time for this!"
+	],
+
+	timerResponseOne: [
+		"Why you taking so long to reply!?",
+		"Hellooooo",
+		"Hurry up!",
+		"You suck at conversations..",
+		"You gonna say something?"
+	],
+
+	timerResponseTwo: [
+		"DID YOU LEAVE ME ON READ!?",
+		"It's not hard to text back",
+		"Babe wyd you're pissing me off",
+		"God you're so bad at communication!",
+		"I just find it funny that you text the guys back faster than this bs"
 	],
 
 	badGifResponseOne: [
@@ -563,7 +583,76 @@
 
 	hideThirdHeart: function() {
 		document.getElementById('heart-three').style.visibility = "hidden"
-	}
+	},
+
+	// startTimerAndCountdown: function() {
+	// 	this.printTime()
+	// 	this.intervalID = setInterval(() => {
+	// 		this.timeElapsed++
+	// 		this.printTime()
+	// 	}, 1000)
+
+	// },
+
+	// stopTimerAndCountdown: function() {
+	// 	clearInterval(this.intervalID)
+	// 	this.timeElapsed = 0
+	// },
+
+	// printTime: function() {
+	// 	const seconds = this.timeElapsed
+
+	// 	let mm = Math.floor(seconds/60)
+
+	// 	let ss = seconds - (mm * 60)
+
+	// 	if(ss < 10) {
+	// 		ss = "0" + ss
+	// 	}
+
+	// 	if(ss / 8 === 1) {
+	// 		const mainQuestionDiv = document.createElement('div')
+	// 		mainQuestionDiv.classList.add('computer-response')
+	// 		mainQuestionDiv.innerText = this.timerResponseOne[Math.floor(Math.random() * (5 - 0) + 0)]
+
+	// 		const textContainerDiv = document.getElementById('text-container')
+	// 		textContainerDiv.appendChild(mainQuestionDiv)
+
+	// 		this.hearts -= 1
+
+	// 		this.hideThirdHeart()
+	// 	}
+
+	// 	if(ss / 12 === 1) {
+	// 		const mainQuestionDiv = document.createElement('div')
+	// 		mainQuestionDiv.classList.add('computer-response')
+	// 		mainQuestionDiv.innerText = this.timerResponseTwo[Math.floor(Math.random() * (5 - 0) + 0)]
+
+	// 		const textContainerDiv = document.getElementById('text-container')
+	// 		textContainerDiv.appendChild(mainQuestionDiv)
+
+	// 		this.hearts -= 1
+
+	// 		this.hideSecondHeart()
+	// 	}
+
+	// 	if(ss / 14 === 1) {
+	// 		const mainQuestionDiv = document.createElement('div')
+	// 		mainQuestionDiv.classList.add('computer-response')
+	// 		mainQuestionDiv.innerText = this.finalBadResponse[Math.floor(Math.random() * (7 - 0) + 0)]
+
+	// 		const textContainerDiv = document.getElementById('text-container')
+	// 		textContainerDiv.appendChild(mainQuestionDiv)
+
+	// 		this.hearts -= 1
+
+	// 		this.hideFirstHeart()
+
+	// 		this.stopTimerAndCountdown()
+	// 	}
+
+	// 	console.log(`${mm}:${ss}`)
+	// }
 }
 
 
@@ -689,8 +778,19 @@ zeroButtonTwo.addEventListener('click', () => {
 	//                                           !!!!!!!!!!!!!!!MAINQUESTIONARR[0]!!!!!!!!!!!!!!!!!!!!
 
 
-	if(game.hearts > 0 && game.mainQuestionArr[0].value === true) {
+	if(game.hearts === 3 && game.mainQuestionArr[0].value === true) {
 		game.printMainQuestionOne()
+		// game.timeElapsed = 0
+		console.log(`Here is the current click count: ${game.buttonOneCC}`)
+	}
+	if(game.hearts === 2 && game.mainQuestionArr[0].value === true) {
+		game.printMainQuestionOne()
+		// game.timeElapsed = 8
+		console.log(`Here is the current click count: ${game.buttonOneCC}`)
+	}
+	if(game.hearts === 1 && game.mainQuestionArr[0].value === true) {
+		game.printMainQuestionOne()
+		// game.timeElapsed = 10
 		console.log(`Here is the current click count: ${game.buttonOneCC}`)
 	}
 
@@ -699,64 +799,116 @@ zeroButtonTwo.addEventListener('click', () => {
 
 	if(game.hearts === 3 && game.buttonOneCC === 2 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === true) {
 		game.printMainQuestionTwo()
+		// game.timeElapsed = 0
 		console.log(`Here is the current click count: ${game.buttonOneCC}`)
 	}
 	if(game.hearts === 2 && game.buttonOneCC === 3 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === true) {
 		game.printMainQuestionTwo()
+		// game.timeElapsed = 8
 		console.log(`Here is the current click count: ${game.buttonOneCC}`)
 	}
+	// if(game.hearts === 2 && game.buttonOneCC === 2 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === true) {
+	// 	game.printMainQuestionTwo()
+		// game.timeElapsed = 8
+	// 	console.log(`Here is the current click count: ${game.buttonOneCC}`)
+	// }
 	if(game.hearts === 1 && game.buttonOneCC === 4 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === true) {
 		game.printMainQuestionTwo()
+		// game.timeElapsed = 10
 		console.log(`Here is the current click count: ${game.buttonOneCC}`)
 	} 
+	// if(game.hearts === 1 && game.buttonOneCC === 2 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === true) {
+	// 	game.printMainQuestionTwo()
+	// 	// game.timeElapsed = 10
+	// 	console.log(`Here is the current click count: ${game.buttonOneCC}`)
+	// } 
 
 	//                                           !!!!!!!!!!!!!!!MAINQUESTIONARR[2]!!!!!!!!!!!!!!!!!!!!
 
 
 	if(game.hearts === 3 && game.buttonOneCC === 3 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === true) {
 		game.printMainQuestionThree()
+		// game.timeElapsed = 0
 		console.log(`Here is the current click count: ${game.buttonOneCC}`)
 	}
 	if(game.hearts === 2 && game.buttonOneCC === 4 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === true) {
 		game.printMainQuestionThree()
+		// game.timeElapsed = 8
 		console.log(`Here is the current click count: ${game.buttonOneCC}`)
 	}
+	// if(game.hearts === 2 && game.buttonOneCC === 3 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === true) {
+	// 	game.printMainQuestionThree()
+	// 	game.timeElapsed = 8
+	// 	console.log(`Here is the current click count: ${game.buttonOneCC}`)
+	// }
 	if(game.hearts === 1 && game.buttonOneCC === 5 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === true) {
 		game.printMainQuestionThree()
+		// game.timeElapsed = 10
 		console.log(`Here is the current click count: ${game.buttonOneCC}`)
 	}
+	// if(game.hearts === 1 && game.buttonOneCC === 3 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === true) {
+	// 	game.printMainQuestionThree()
+	// 	game.timeElapsed = 10
+	// 	console.log(`Here is the current click count: ${game.buttonOneCC}`)
+	// }
 
 	//                                           !!!!!!!!!!!!!!!MAINQUESTIONARR[3]!!!!!!!!!!!!!!!!!!!!
 
 
 	if(game.hearts === 3 && game.buttonOneCC === 4 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === false && game.mainQuestionArr[3].value === true) {
 		game.printMainQuestionFour()
+		// game.timeElapsed = 0
 		console.log(`Here is the current click count: ${game.buttonOneCC}`)
 	}
 	if(game.hearts === 2 && game.buttonOneCC === 5 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === false && game.mainQuestionArr[3].value === true) {
 		game.printMainQuestionFour()
+		// game.timeElapsed = 8
 		console.log(`Here is the current click count: ${game.buttonOneCC}`)
 	}
+	// if(game.hearts === 2 && game.buttonOneCC === 4 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === false && game.mainQuestionArr[3].value === true) {
+	// 	game.printMainQuestionFour()
+	// 	game.timeElapsed = 8
+	// 	console.log(`Here is the current click count: ${game.buttonOneCC}`)
+	// }
 	if(game.hearts === 1 && game.buttonOneCC === 6 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === false && game.mainQuestionArr[3].value === true) {
 		game.printMainQuestionFour()
+		// game.timeElapsed = 1
 		console.log(`Here is the current click count: ${game.buttonOneCC}`)
 	}
+	// if(game.hearts === 1 && game.buttonOneCC === 4 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === false && game.mainQuestionArr[3].value === true) {
+	// 	game.printMainQuestionFour()
+	// 	game.timeElapsed = 1
+	// 	console.log(`Here is the current click count: ${game.buttonOneCC}`)
+	// }
 
 	//                                           !!!!!!!!!!!!!!!MAINQUESTIONARR[4]!!!!!!!!!!!!!!!!!!!!
 
 
 	if(game.hearts === 3 && game.buttonOneCC === 5 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === false && game.mainQuestionArr[3].value === false && game.mainQuestionArr[4].value === true) {
 		game.printMainQuestionFive()
+		// game.stopTimerAndCountdown()
 		console.log(`Here is the current click count: ${game.buttonOneCC}`)
 	}
 	if(game.hearts === 2 && game.buttonOneCC === 6 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === false && game.mainQuestionArr[3].value === false && game.mainQuestionArr[4].value === true) {
 		game.printMainQuestionFive()
+		// game.stopTimerAndCountdown()
 		console.log(`Here is the current click count: ${game.buttonOneCC}`)
 	}
+	// if(game.hearts === 2 && game.buttonOneCC === 5 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === false && game.mainQuestionArr[3].value === false && game.mainQuestionArr[4].value === true) {
+	// 	game.printMainQuestionFive()
+	// 	game.stopTimerAndCountdown()
+	// 	console.log(`Here is the current click count: ${game.buttonOneCC}`)
+	// }
 	if(game.hearts === 1 && game.buttonOneCC === 7 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === false && game.mainQuestionArr[3].value === false && game.mainQuestionArr[4].value === true) {
 		game.printMainQuestionFive()
+		// game.stopTimerAndCountdown()
 		console.log(`Here is the current click count: ${game.buttonOneCC}`)
 	}
+	// if(game.hearts === 1 && game.buttonOneCC === 5 && game.mainQuestionArr[0].value === false && game.mainQuestionArr[1].value === false && game.mainQuestionArr[2].value === false && game.mainQuestionArr[3].value === false && game.mainQuestionArr[4].value === true) {
+	// 	game.printMainQuestionFive()
+	// 	game.stopTimerAndCountdown()
+	// 	console.log(`Here is the current click count: ${game.buttonOneCC}`)
+	// }
 
 
 	else if(game.hearts === 0) {
@@ -768,9 +920,10 @@ zeroButtonTwo.addEventListener('click', () => {
 //                                                 !!!!!!!!!!!!!!!PLAY BUTTON!!!!!!!!!!!!!!!!!!!
 //										           !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-const startButton = document.getElementById('start')
+const startButton = document.getElementById('play')
 startButton.addEventListener('click', () => {
 	game.start()
+	// game.startTimerAndCountdown()
 })
 
 
