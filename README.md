@@ -5,3 +5,10 @@ User Story Wireframe:
 
 UI Wireframe:
 ![Imgur](https://i.imgur.com/DTgEDpL.jpg)
+
+Future Updates:
+-Chat bubble that simulates you typing while you choose a response.
+
+-Countdown timer.
+
+-Respond with a GIF!
