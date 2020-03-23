@@ -1,5 +1,7 @@
 Relationship Simulator: Play a game that simulates what it's like to communicate in a relationship!
 
-[Imgur](https://i.imgur.com/loGKtkr.jpg)
+User Story Wireframe:
+![Imgur](https://i.imgur.com/loGKtkr.jpg)
 
-[Imgur](https://i.imgur.com/DTgEDpL.jpg)
+UI Wireframe:
+![Imgur](https://i.imgur.com/DTgEDpL.jpg)
